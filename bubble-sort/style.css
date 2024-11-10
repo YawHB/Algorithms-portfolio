@@ -37,10 +37,17 @@
 }
 
 /* Fade animation - Bokse fades ud, byttes, og fades ind igen */
-.fade-out {
+.fadeOut {
     opacity: 0;
 }
 
 .lookingAt {
     background-color: rgb(117, 46, 204);
+}
+
+.elementSorted {
+    background-color: lawngreen;
+}
+.unsorted {
+    background-color: #f1f1f1;
 }
