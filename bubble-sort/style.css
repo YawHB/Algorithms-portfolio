@@ -1,0 +1,46 @@
+/* Grundlæggende stil for array-bokse */
+.array-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+.other-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.other-box {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(88, 183, 195);
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    transition: opacity 0.5s ease;
+}
+
+.box {
+    width: 50px;
+    height: 50px;
+    background-color: #f1f1f1;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    transition: opacity 0.5s ease;
+}
+
+/* Fade animation - Bokse fades ud, byttes, og fades ind igen */
+.fade-out {
+    opacity: 0;
+}
+
+.lookingAt {
+    background-color: rgb(117, 46, 204);
+}

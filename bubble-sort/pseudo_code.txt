@@ -1,5 +1,26 @@
 
 
+1. ved klik, skal curr og next blive blå, for at se hvilke tal vi kigger på
+
+2. Hvis curr > next, fade begge ud, og fade dem ind igen på korrekte pladser 
+
+3. forsæt dette hele array'et igennem.
+
+4. når et element er sorteret skal baggrunden blive grøn
+
+
+
+
+if (boxes[j] === j || boxes[j + 1]) {
+        boxes[j].classList.add('lookingAt');
+        boxes[j + 1].classList.add('lookingAt');
+    }
+
+
+
+
+=====================================================
+
 Lav pseudo kode for bubble sort
 
 1. lav et ydrer for loop som itererer over hvert element i arrayet. Det skal holde styr på hvor langt vi 
