@@ -4,24 +4,16 @@ let i = 0;
 let j = 0;
 
 //Giver et klik event på knappen.
-document.querySelector('.btn').addEventListener('click', outerIteration);
 const container = document.querySelector('.array-container');
 const btnSubmit = document.querySelector('#btn-submit');
+document.querySelector('.btn').addEventListener('click', outerIteration);
 btnSubmit.addEventListener('click', submitForm);
 
 function submitForm(event) {
     event.preventDefault();
-    console.log('inside submitForm');
-
     const arrayLengthInput = document.querySelector('#array-length').value;
-    console.log(arrayLengthInput);
-
     array = generateArrayFromInput(arrayLengthInput);
-
-    console.log(array);
-
-    console.log('array: ' + array);
-    outerIteration(array);
+    reRenderArray();
 }
 
 //reRenderArray laver dynamisk html, ved at vise det nuværende state sorteringen er nået til.
