@@ -51,15 +51,29 @@ function outerIteration() {
 }
 
 function inderIteration() {
+    const boxes = document.querySelectorAll('.box');
+
     //Sammenligner nuværende og næste element. "- i" sørger for at dekrementere arrayet med i for hvert klik, så det ikke tjekker de sortede elementer igen
     if (j !== array.length - i - 1) {
         if (array[j] > array[j + 1]) {
-            //Bytter om på to elementers placeringer med aray destructuring - Gør præcis det samme som at have en temp variabel. Legede bare lidt :)
-            [array[j + 1], array[j]] = [array[j], array[j + 1]];
+            boxes[j].classList.add('fadeOut');
+            boxes[j + 1].classList.add('fadeOut');
+
+            setTimeout(() => {
+                //Bytter om på to elementers placeringer med aray destructuring - Gør præcis det samme som at have en temp variabel. Legede bare lidt :)
+                [array[j + 1], array[j]] = [array[j], array[j + 1]];
+
+                // Fjern fadeOut og lookingAt klasserne, og opdater array-visningen
+                boxes[j].classList.remove('lookingAt', 'fadeOut');
+                boxes[j + 1].classList.remove('lookingAt', 'fadeOut');
+
+                reRenderArray();
+            }, 500);
+        } else {
+            j++;
+            //Opdaterer arrayet efter hver klik/sammenligning
+            reRenderArray();
         }
-        j++;
-        //Opdaterer arrayet efter hver klik/sammenligning
-        reRenderArray();
         //Hvis j er har sammenlignet nuværende med næste hele arrayet igennem, start forfra.
         if (j === array.length - i - 1) {
             i = i + 1;
@@ -67,7 +81,7 @@ function inderIteration() {
         }
     }
     console.log('array: ' + array);
-    reRenderArray();
+    // reRenderArray();
 }
 
 function reRenderArray() {
@@ -95,13 +109,14 @@ function generateArrayFromInput(arrayLength) {
     return array;
 }
 /* 
-1. Lav form til array generation med enten 5,10 eller 15 elementer
-2. ved submit skal alle talene pushes ind i et array
-3. send dette array til 
-
+// 1. Lav form til array generation med enten 5,10 eller 15 elementer
+// 2. ved submit skal alle talene pushes ind i et array
+// 3. send dette array til globalt array
 
 */
 
-// 1. Bruger skal kunne generere et random array på x antal tal.
+//Når jeg klikker next knappen, skal vi ikke blot få den lilla farve på de to elementer vi vi kigger på, de skal også sammenlignes
+//når to elementer fader ud og bytter om skal de også fade ind igen
+
 //2. Swap skal have fade effekt
 //3. Centrer diven med tal og knap */
