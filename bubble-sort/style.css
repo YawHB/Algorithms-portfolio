@@ -64,6 +64,9 @@ body {
 .arraySorted {
     background-color: lawngreen;
 }
+.sorted {
+    background-color: lawngreen;
+}
 .unsorted {
     background-color: #f1f1f1;
 }

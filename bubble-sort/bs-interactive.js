@@ -1,4 +1,5 @@
 let array = [];
+let sortedElements = [];
 //"i" og "j" holder styr på vores iterationer.
 let i = 0;
 let j = 0;
@@ -6,7 +7,7 @@ let j = 0;
 //Giver et klik event på knappen.
 const container = document.querySelector('.array-container');
 const btnSubmit = document.querySelector('#btn-submit');
-document.querySelector('.btn').addEventListener('click', outerIteration);
+document.querySelector('.btn-next').addEventListener('click', outerIteration);
 btnSubmit.addEventListener('click', submitForm);
 
 function submitForm(event) {
@@ -19,13 +20,13 @@ function submitForm(event) {
 //reRenderArray laver dynamisk html, ved at vise det nuværende state sorteringen er nået til.
 reRenderArray();
 
-function showArray(element) {
+function showArray(element, index) {
     let arrayIsSorted = isSorted(array);
 
     //Vores ternary operator gør hele arrayet grønt hvis arrayet er sorteret, ved at bruge css klassen "arraySorted"
     const html = /*html*/ `
 
-        <div class="box ${arrayIsSorted ? 'arraySorted' : ''}">${element}</div>
+        <div class="box ${arrayIsSorted ? 'arraySorted' : ''}  ${sortedElements.includes(index) ? 'sorted' : ''} ">${element}</div>
     
     `;
     container.insertAdjacentHTML('beforeend', html);
@@ -77,9 +78,18 @@ function inderIteration() {
         //Hvis j er har sammenlignet nuværende med næste hele arrayet igennem, start forfra.
         if (j === array.length - i - 1) {
             console.log('increase i: ' + i);
+            sortedElements.push(array.length - i - 1);
+            console.log('sorted elements: ' + sortedElements);
+
+            // const boxes = document.querySelectorAll('.box');
+            // boxes[array.length - i - 1].classList.remove('lookingAt');
+            // boxes[array.length - i - 1].classList.add('sorted');
+
+            //boxes[array.length - i].classList.add('.lookingAt');
 
             i = i + 1;
             j = 0;
+
             console.log('i increased: ' + i);
             reRenderArray();
         }
