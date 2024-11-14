@@ -76,12 +76,15 @@ function inderIteration() {
         }
         //Hvis j er har sammenlignet nuværende med næste hele arrayet igennem, start forfra.
         if (j === array.length - i - 1) {
+            console.log('increase i: ' + i);
+
             i = i + 1;
             j = 0;
+            console.log('i increased: ' + i);
+            reRenderArray();
         }
     }
     console.log('array: ' + array);
-    // reRenderArray();
 }
 
 function reRenderArray() {
@@ -94,7 +97,6 @@ function reRenderArray() {
 function isSorted(array) {
     for (let i = 0; i < array.length - 1; i++) {
         if (array[i] > array[i + 1]) return false;
-        console.log('element: ' + array[i]);
     }
     return true;
 }

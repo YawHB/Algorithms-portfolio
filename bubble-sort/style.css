@@ -1,13 +1,29 @@
 /* Grundlæggende stil for array-bokse */
+html,
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .array-container {
     display: flex;
+    /* justify-content: center;
+    align-items: center; */
     gap: 10px;
-    margin-top: 20px;
 }
-.other-container {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
+
+.user-display {
+    margin-bottom: 50px;
 }
 
 .other-box {
