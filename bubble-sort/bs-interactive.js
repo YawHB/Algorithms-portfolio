@@ -1,13 +1,28 @@
-const array = [7, 2, 9, 4, 1];
+let array = [];
 //"i" og "j" holder styr på vores iterationer.
 let i = 0;
 let j = 0;
 
-console.log('array: ' + array);
-
 //Giver et klik event på knappen.
 document.querySelector('.btn').addEventListener('click', outerIteration);
 const container = document.querySelector('.array-container');
+const btnSubmit = document.querySelector('#btn-submit');
+btnSubmit.addEventListener('click', submitForm);
+
+function submitForm(event) {
+    event.preventDefault();
+    console.log('inside submitForm');
+
+    const arrayLengthInput = document.querySelector('#array-length').value;
+    console.log(arrayLengthInput);
+
+    array = generateArrayFromInput(arrayLengthInput);
+
+    console.log(array);
+
+    console.log('array: ' + array);
+    outerIteration(array);
+}
 
 //reRenderArray laver dynamisk html, ved at vise det nuværende state sorteringen er nået til.
 reRenderArray();
@@ -24,7 +39,7 @@ function showArray(element) {
     container.insertAdjacentHTML('beforeend', html);
     const boxes = document.querySelectorAll('.box');
 
-    //Giver de 2 elementer vi sammenligner en grim lilla farve
+    //Giver de 2 elementer vi sammenligner, en grim, lilla farve
     if (boxes[j] && boxes[j + 1]) {
         boxes[j].classList.add('lookingAt');
         boxes[j + 1].classList.add('lookingAt');
@@ -68,6 +83,7 @@ function reRenderArray() {
     array.forEach(showArray);
 }
 
+//? Helper functions
 //Denne funktion returnerer true hvis arrayet er sorteret. ellers returnerer den false
 function isSorted(array) {
     for (let i = 0; i < array.length - 1; i++) {
@@ -76,3 +92,24 @@ function isSorted(array) {
     }
     return true;
 }
+
+function generateArrayFromInput(arrayLength) {
+    const array = [];
+    for (let i = 0; i < arrayLength; i++) {
+        const randomGeneratedNumber = Math.floor(Math.random() * 50);
+        array.push(randomGeneratedNumber);
+    }
+    console.log(array);
+    return array;
+}
+/* 
+1. Lav form til array generation med enten 5,10 eller 15 elementer
+2. ved submit skal alle talene pushes ind i et array
+3. send dette array til 
+
+
+*/
+
+// 1. Bruger skal kunne generere et random array på x antal tal.
+//2. Swap skal have fade effekt
+//3. Centrer diven med tal og knap */
