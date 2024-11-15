@@ -1,5 +1,5 @@
 let array = [];
-let sortedElements = [];
+const sortedElements = [];
 //"i" og "j" holder styr på vores iterationer.
 let i = 0;
 let j = 0;
@@ -44,11 +44,6 @@ function outerIteration() {
     if (i !== array.length - 1) {
         inderIteration();
     }
-
-    if (i === array.length - 1) {
-        // console.log('sorting is finished');
-        // console.log('sorted array: ' + array);
-    }
 }
 
 function inderIteration() {
@@ -77,16 +72,7 @@ function inderIteration() {
         }
         //Hvis j er har sammenlignet nuværende med næste hele arrayet igennem, start forfra.
         if (j === array.length - i - 1) {
-            console.log('increase i: ' + i);
             sortedElements.push(array.length - i - 1);
-            console.log('sorted elements: ' + sortedElements);
-
-            // const boxes = document.querySelectorAll('.box');
-            // boxes[array.length - i - 1].classList.remove('lookingAt');
-            // boxes[array.length - i - 1].classList.add('sorted');
-
-            //boxes[array.length - i].classList.add('.lookingAt');
-
             i = i + 1;
             j = 0;
 
@@ -120,15 +106,3 @@ function generateArrayFromInput(arrayLength) {
     console.log(array);
     return array;
 }
-/* 
-// 1. Lav form til array generation med enten 5,10 eller 15 elementer
-// 2. ved submit skal alle talene pushes ind i et array
-// 3. send dette array til globalt array
-
-*/
-
-//Når jeg klikker next knappen, skal vi ikke blot få den lilla farve på de to elementer vi vi kigger på, de skal også sammenlignes
-//når to elementer fader ud og bytter om skal de også fade ind igen
-
-//2. Swap skal have fade effekt
-//3. Centrer diven med tal og knap */
