@@ -1,14 +1,21 @@
+window.addEventListener('load', init);
 let array = [];
 const sortedElements = [];
 //"i" og "j" holder styr på vores iterationer.
 let i = 0;
 let j = 0;
 
+function init() {
+    array = generateArrayFromInput(6);
+    reRenderArray();
+}
 //Giver et klik event på knappen.
 const container = document.querySelector('.array-container');
-const btnSubmit = document.querySelector('#btn-submit');
+// const btnSubmit = document.querySelector('#btn-submit');
+const inputForm = document.querySelector('#array-length');
+inputForm.addEventListener('change', submitForm);
 document.querySelector('.btn-next').addEventListener('click', outerIteration);
-btnSubmit.addEventListener('click', submitForm);
+// btnSubmit.addEventListener('click', submitForm);
 
 function submitForm(event) {
     event.preventDefault();
