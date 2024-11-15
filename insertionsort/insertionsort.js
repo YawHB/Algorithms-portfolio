@@ -1,7 +1,4 @@
-//console.log(insertionSortShift([5, 3, 8, 4, 2]));
-console.log(whileInsertionSort([5, 3, 8, 4, 2]));
-
-function insertionSortShift(array) {
+export function insertionSortShift(array) {
     //Ydre loop sørger for at vi på sigt får kigget på og sammenlignet alle elementer fra i og dem før det, til og med det sidste element i arrayet
     for (let i = 1; i < array.length; i++) {
         //Vi gemmer nuværende værdi, da den ellers vil blive mistet, når vi overskriver den i det indre loop
@@ -20,7 +17,8 @@ function insertionSortShift(array) {
     return array;
 }
 
-function whileInsertionSort(array) {
+export function whileInsertionSort(array) {
+    let count = 0;
     //Ydre loop sørger for at vi på sigt får kigget på og sammenlignet alle elementer fra i og dem før det, til og med det sidste element i arrayet
     for (let i = 1; i < array.length; i++) {
         //Vi gemmer nuværende værdi, da den ellers vil blive mistet, når vi overskriver den i det indre loop
@@ -34,9 +32,12 @@ function whileInsertionSort(array) {
             array[j + 1] = array[j];
             //j-- sørger for at vi bevæger os mod starten af arrayet, så nuværende element potentielt sammenligner alle tidligere
             j--;
+            count++;
         }
+
         //Når nuværende element er <= et tidligere, sættes nuværende element på det aktuelle element vi kigger på
         array[j + 1] = curval;
     }
+    console.log(count);
     return array;
 }
