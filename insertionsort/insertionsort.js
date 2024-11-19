@@ -17,7 +17,7 @@ export function insertionSortShift(array) {
     return array;
 }
 
-export function whileInsertionSort(array) {
+export function whileInsertionSortShift(array) {
     let count = 0;
     //Ydre loop sørger for at vi på sigt får kigget på og sammenlignet alle elementer fra i og dem før det, til og med det sidste element i arrayet
     for (let i = 1; i < array.length; i++) {
@@ -37,7 +37,7 @@ export function whileInsertionSort(array) {
 
         //Når nuværende element er <= et tidligere, sættes nuværende element på det aktuelle element vi kigger på
         array[j + 1] = curval;
+        console.log(count);
     }
-    console.log(count);
     return array;
 }
